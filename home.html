@@ -9,6 +9,8 @@
         <!-- Bootstrap -->
         <link href="css/bootstrap.min.css" rel="stylesheet">
 
+        <script src="js/echarts.min.js"></script>
+
         <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
         <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
         <!--[if lt IE 9]>
@@ -47,18 +49,6 @@
         <script src="http://cdn.bootcss.com/jquery/1.11.1/jquery.min.js"></script>
         <script src="js/bootstrap.min.js"></script>
 
-        <header class="main-header" style="background-image: url(http://image.golaravel.com/5/c9/44e1c4e50d55159c65da6a41bc07e.jpg)">
-            <div class="containter">
-                <div class="row">
-                    <div class="col-md-12">
-                        <h1 class="headerTitle">Ray's Lab</h1>
-                        <h2 class="headerTitle">This is a lab for ray to make something.</h2>
-                        <!-- <img src="http://image.golaravel.com/e/b0/4e4bd788405aab87f03d26edc4ab4.png"> -->
-                    </div>
-                </div>
-            </div>
-        </header>
-
         <nav class="navbar navbar-default main-nav" role="navigation">
             <div class="container-fluid">
                 <div class="row">
@@ -86,16 +76,43 @@
         <div class="content-wrap">
             <div class="containter">
                 <div class="row">
-                    <div class="col-md-1"></div>
-                    <div class="col-md-6">
-                        <div class="feeds">
 
-                        </div>
-                    </div>
-                    <div class="col-md-4"></div>
-                    <div class="col-md-1"></div>
+                    <div class="col-md-12" id="mytestChart" style="height:500px;"></div>
+                        <script type="text/javascript">
+                            // 基于准备好的dom，初始化echarts实例
+                            var myChart = echarts.init(document.getElementById('mytestChart'));
+
+                            // 指定图表的配置项和数据
+                            var option = {
+                                title: {
+                                    text: '全国主要城市空气质量 - 百度地图',
+                                    subtext: 'data from PM25.in',
+                                    sublink: 'http://www.pm25.in',
+                                    left: 'center'
+                                },
+                                legend: {
+                                    data:['流量','降雨量'],
+                                    x: 'left'
+                                },
+                                tooltip: {},
+                                xAxis: {
+                                    data: ["衬衫","羊毛衫","雪纺衫","裤子","高跟鞋","袜子"]
+                                },
+                                yAxis: {},
+                                series: [{
+                                    name: '销量',
+                                    type: 'bar',
+                                    data: [5, 20, 36, 10, 10, 20]
+                                }]
+                            };
+
+                            // 使用刚指定的配置项和数据显示图表。
+                            myChart.setOption(option);
+                        </script>
+
                 </div>
             </div>
         </div>
+
     </body>
 </html>
